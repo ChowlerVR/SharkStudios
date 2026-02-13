@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shark Studios</title>
 <style>
-  /* General Styles */
   body {
     margin:0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,7 +16,7 @@
   /* Header */
   header {
     background: linear-gradient(135deg,#001f3f,#00274d);
-    padding: 50px 20px;
+    padding:50px 20px;
     text-align:center;
   }
   header h1 { color:#00d1ff; font-size:3rem; margin-bottom:10px; }
@@ -40,7 +39,7 @@
   /* Services */
   .services-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
     margin-top:20px;
   }
@@ -53,19 +52,22 @@
   .service-card h3 { font-size:1.5rem; margin-bottom:15px; color:#00d1ff; }
   .service-card p { font-size:1.1rem; }
 
-  /* Portfolio */
-  .portfolio-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px; margin-top:20px;
+  /* Portfolio row */
+  .thumbnails {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:50px;
   }
-  .portfolio-card {
-    background:#001f3f; border-radius:10px; overflow:hidden;
+  .thumbnails img {
+    width:200px;
+    height:auto;
+    border-radius:8px;
     box-shadow:0 5px 15px rgba(0,0,0,0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
   }
-  .portfolio-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.6); }
-  .portfolio-card img { width:100%; display:block; }
+  .thumbnails img:hover { transform:scale(1.05); }
 
   /* Contact Form */
   input, textarea, button {
@@ -122,16 +124,11 @@
 
 <section id="portfolio">
   <h2>Portfolio</h2>
-  <div class="portfolio-grid">
-    <!-- Add all your .webp images here -->
-    <div class="portfolio-card">
-      <img src="New_Project_-_2026-01-31T135652.801.webp" alt="Thumbnail 1">
-    </div>
-    <div class="portfolio-card">
-      <img src="New_Project_1.webp" alt="Thumbnail 2">
-    </div>
-    <!-- Example: Add more images like this -->
-    <!-- <div class="portfolio-card"><img src="YourImage.webp" alt="Thumbnail"></div> -->
+  <div class="thumbnails">
+    <img src="New_Project_-_2026-01-31T135652.801.webp" alt="Thumbnail 1">
+    <img src="New_Project_-_2026-02-09T190911.630.webp" alt="Thumbnail 2">
+    <img src="New_Project_-_2026-02-12T160904.468.webp" alt="Thumbnail 3">
+    <img src="New_Project_1.webp" alt="Thumbnail 4">
   </div>
 </section>
 
