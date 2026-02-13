@@ -7,9 +7,9 @@
 <style>
   body {
     margin:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0e1a2b;
-    color: #fff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#0e1a2b;
+    color:#fff;
     text-align:center;
   }
   a { text-decoration:none; color: inherit; }
@@ -22,9 +22,9 @@
   header h1 { color:#00d1ff; font-size:3rem; margin-bottom:10px; }
 
   /* Home section */
-  #home p { 
-    text-align:center; 
-    max-width:600px; 
+  #home p {
+    text-align:center;
+    max-width:600px;
     margin:20px auto;
     font-size:1.2rem;
   }
@@ -59,7 +59,7 @@
   .service-card h3 { font-size:1.5rem; margin-bottom:15px; color:#00d1ff; }
   .service-card p { font-size:1.1rem; }
 
-  /* Portfolio row */
+  /* Portfolio thumbnails */
   .thumbnails {
     display:flex;
     flex-wrap:wrap;
@@ -78,7 +78,7 @@
   .thumbnails img:hover { transform:scale(1.05); }
 
   /* Lightbox overlay */
-  #lightbox {
+  #lightboxOverlay {
     display:none;
     position:fixed;
     top:0; left:0;
@@ -88,12 +88,12 @@
     align-items:center;
     z-index:1000;
   }
-  #lightbox img {
+  #lightboxOverlay img {
     max-width:90%;
     max-height:90%;
     border-radius:8px;
   }
-  #lightbox:target { display:flex; }
+  #lightboxOverlay:target { display:flex; }
 
   /* Contact Form */
   input, textarea, button {
@@ -150,25 +150,16 @@
 <section id="portfolio">
   <h2>Portfolio</h2>
   <div class="thumbnails">
-    <a href="#lightbox1"><img src="thumbnail1.webp" alt="Thumbnail 1"></a>
-    <a href="#lightbox2"><img src="thumbnail2.webp" alt="Thumbnail 2"></a>
-    <a href="#lightbox3"><img src="thumbnail3.webp" alt="Thumbnail 3"></a>
-    <a href="#lightbox4"><img src="thumbnail4.webp" alt="Thumbnail 4"></a>
+    <img src="thumbnail1.webp" alt="Thumbnail 1" onclick="openLightbox(this.src)">
+    <img src="thumbnail2.webp" alt="Thumbnail 2" onclick="openLightbox(this.src)">
+    <img src="thumbnail3.webp" alt="Thumbnail 3" onclick="openLightbox(this.src)">
+    <img src="thumbnail4.webp" alt="Thumbnail 4" onclick="openLightbox(this.src)">
   </div>
 </section>
 
-<!-- Lightbox overlays -->
-<div id="lightbox1" class="lightbox">
-  <a href="#portfolio"><img src="thumbnail1.webp" alt="Thumbnail 1"></a>
-</div>
-<div id="lightbox2" class="lightbox">
-  <a href="#portfolio"><img src="thumbnail2.webp" alt="Thumbnail 2"></a>
-</div>
-<div id="lightbox3" class="lightbox">
-  <a href="#portfolio"><img src="thumbnail3.webp" alt="Thumbnail 3"></a>
-</div>
-<div id="lightbox4" class="lightbox">
-  <a href="#portfolio"><img src="thumbnail4.webp" alt="Thumbnail 4"></a>
+<!-- Lightbox overlay -->
+<div id="lightboxOverlay" onclick="closeLightbox()">
+  <img id="lightboxImage" src="" alt="Expanded Thumbnail">
 </div>
 
 <section id="contact">
@@ -210,6 +201,16 @@
         console.error(error);
       });
   });
+
+  // Lightbox functions
+  function openLightbox(src){
+    document.getElementById('lightboxImage').src = src;
+    document.getElementById('lightboxOverlay').style.display = 'flex';
+  }
+
+  function closeLightbox(){
+    document.getElementById('lightboxOverlay').style.display = 'none';
+  }
 </script>
 
 </body>
