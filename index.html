@@ -6,34 +6,35 @@
 <title>Shark Studios | Video Editing & Thumbnails</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-body { background:#0b0f19; color:#fff; overflow-x:hidden; }
-header { position:fixed; top:0; left:0; width:100%; padding:20px 60px; display:flex; justify-content:space-between; align-items:center; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); z-index:1000; }
-header h1 { font-size:1.6rem; font-weight:800; letter-spacing:2px; color:#00c3ff; }
-nav a { color:#fff; text-decoration:none; margin-left:30px; font-weight:500; transition:0.3s; cursor:pointer; }
-nav a:hover { color:#00c3ff; }
-section { padding:110px 60px; text-align:center; }
-.hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; background: linear-gradient(135deg, #001f3f, #000814); }
-.hero h2 { font-size:4rem; font-weight:800; background: linear-gradient(90deg,#00c3ff,#0077ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.hero p { margin-top:20px; max-width:620px; font-size:1.2rem; opacity:0.85; }
-.btn { margin-top:35px; padding:15px 38px; border-radius:30px; background:#00c3ff; color:#000; font-weight:600; text-decoration:none; transition:0.3s; }
-.btn:hover { background:#0077ff; color:#fff; }
-.services { margin-top:50px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:40px; }
-.card { background:#111827; padding:45px 35px; border-radius:22px; transition:0.35s; }
-.card:hover { transform:translateY(-12px); background:#1f2937; }
-.card h3 { margin-bottom:15px; color:#00c3ff; }
-.portfolio-grid { margin-top:60px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px; }
-.portfolio-grid img, .portfolio-grid iframe { width:100%; border-radius:20px; transition:0.35s ease; box-shadow:0 25px 50px rgba(0,0,0,0.45); }
-.portfolio-grid img:hover { transform:scale(1.07); }
-.contact { max-width:700px; margin:0 auto; }
-.contact input, .contact textarea { width:100%; margin-top:15px; padding:15px; border-radius:12px; border:none; outline:none; font-size:1rem; }
-.contact button { margin-top:25px; padding:15px 34px; border-radius:30px; border:none; background:#00c3ff; font-weight:600; cursor:pointer; transition:0.3s; }
-.tab-btn { padding:12px 30px; border-radius:30px; border: none; cursor:pointer; font-weight:600; background:#111827; color:#fff; transition:0.3s; }
-.tab-btn.active { background:#00c3ff; color:#000; }
-footer { background:#000814; text-align:center; padding:30px; font-size:0.9rem; opacity:0.65; display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; }
-.hire-btn { padding:8px 20px; border-radius:20px; background:#00c3ff; color:#000; text-decoration:none; font-weight:600; transition:0.3s; cursor:pointer; }
-.hire-btn:hover { background:#0077ff; color:#fff; }
-@media (max-width:768px){ header{padding:20px;} .hero h2{font-size:2.6rem;} section{padding:90px 20px;} footer{flex-direction:column; gap:10px;} }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0b0f19;color:#fff;overflow-x:hidden;}
+header{position:fixed;top:0;left:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background: rgba(0,0,0,0.65);backdrop-filter: blur(10px);z-index:1000;}
+header h1{font-size:1.6rem;font-weight:800;letter-spacing:2px;color:#00c3ff;}
+nav a{color:#fff;text-decoration:none;margin-left:30px;font-weight:500;transition:0.3s;cursor:pointer;}
+nav a:hover{color:#00c3ff;}
+section{padding:110px 60px;text-align:center;}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;background: linear-gradient(135deg, #001f3f, #000814);}
+.hero h2{font-size:4rem;font-weight:800;background: linear-gradient(90deg,#00c3ff,#0077ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{margin-top:20px;max-width:620px;font-size:1.2rem;opacity:0.85;}
+.btn{margin-top:35px;padding:15px 38px;border-radius:30px;background:#00c3ff;color:#000;font-weight:600;text-decoration:none;transition:0.3s;}
+.btn:hover{background:#0077ff;color:#fff;}
+.services{margin-top:50px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;}
+.card{background:#111827;padding:45px 35px;border-radius:22px;transition:0.35s;}
+.card:hover{transform:translateY(-12px);background:#1f2937;}
+.card h3{margin-bottom:15px;color:#00c3ff;}
+.portfolio-grid{margin-top:60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;}
+.portfolio-grid img,.portfolio-grid iframe{width:100%;border-radius:20px;transition:0.35s ease;box-shadow:0 25px 50px rgba(0,0,0,0.45);}
+.portfolio-grid img:hover{transform:scale(1.07);}
+.contact{max-width:700px;margin:0 auto;}
+.contact input,.contact textarea{width:100%;margin-top:15px;padding:15px;border-radius:12px;border:none;outline:none;font-size:1rem;}
+.contact button{margin-top:25px;padding:15px 34px;border-radius:30px;border:none;background:#00c3ff;font-weight:600;cursor:pointer;transition:0.3s;}
+.contact button:hover{background:#0077ff;color:#fff;}
+.tab-btn{padding:12px 30px;border-radius:30px;border: none;cursor:pointer;font-weight:600;background:#111827;color:#fff;transition:0.3s;}
+.tab-btn.active{background:#00c3ff;color:#000;}
+footer{background:#000814;text-align:center;padding:30px;font-size:0.9rem;opacity:0.65;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;}
+.hire-btn{padding:8px 20px;border-radius:20px;background:#00c3ff;color:#000;text-decoration:none;font-weight:600;transition:0.3s;cursor:pointer;}
+.hire-btn:hover{background:#0077ff;color:#fff;}
+@media (max-width:768px){ header{padding:20px;} .hero h2{font-size:2.6rem;} section{padding:90px 20px;} footer{flex-direction:column;gap:10px;} }
 </style>
 </head>
 <body>
@@ -107,57 +108,52 @@ footer { background:#000814; text-align:center; padding:30px; font-size:0.9rem; 
 </footer>
 
 <script>
-const mainContent = document.getElementById('mainContent');
-const hireMeBtn = document.getElementById('hireMeBtn');
-const hireFooterBtn = document.getElementById('hireFooterBtn');
-
-const emailForm = document.getElementById('emailForm');
-const discordForm = document.getElementById('discordForm');
-const webhookURL = "YOUR_CONTACT_DISCORD_WEBHOOK_HERE";
-
-// Tab functionality
+// Contact tab functionality
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    emailForm.style.display = btn.dataset.tab==='email'?'block':'none';
-    discordForm.style.display = btn.dataset.tab==='discord'?'block':'none';
+    document.getElementById('emailForm').style.display = btn.dataset.tab==='email'?'block':'none';
+    document.getElementById('discordForm').style.display = btn.dataset.tab==='discord'?'block':'none';
   });
 });
 
-async function sendToDiscord(name, user, message, tab){
+const webhookURL = "YOUR_CONTACT_DISCORD_WEBHOOK_HERE";
+
+async function sendToDiscord(name,user,message,tab){
   const payload = {content:`**New Inquiry (${tab} Tab)**\n**Name:** ${name}\n**Contact:** ${user}\n**Message:** ${message}`};
   try{
-    const res = await fetch(webhookURL,{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+    const res = await fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     if(res.ok){ alert('Message sent successfully via Discord!'); return true; }
     else{ alert('Failed to send message. Discord status: '+res.status); return false; }
   }catch(err){ console.error(err); alert('Error sending message.'); return false; }
 }
 
-emailForm.addEventListener('submit', async e=>{
+document.getElementById('emailForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const name = document.getElementById('emailName').value.trim();
   const email = document.getElementById('emailAddress').value.trim();
   const message = document.getElementById('emailMessage').value.trim();
   if(!name||!email||!message){ alert('Please fill out all fields.'); return; }
   const success = await sendToDiscord(name,email,message,'Email');
-  if(success) emailForm.reset();
+  if(success) document.getElementById('emailForm').reset();
 });
 
-discordForm.addEventListener('submit', async e=>{
+document.getElementById('discordForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const name = document.getElementById('discordName').value.trim();
   const discordUser = document.getElementById('discordUser').value.trim();
   const message = document.getElementById('discordMessage').value.trim();
   if(!name||!discordUser||!message){ alert('Please fill out all fields.'); return; }
   const success = await sendToDiscord(name,discordUser,message,'Discord');
-  if(success) discordForm.reset();
+  if(success) document.getElementById('discordForm').reset();
 });
 
 // ===== HIRE ME FORM DYNAMIC REPLACEMENT =====
 const hireWebhookURL = "YOUR_HIRE_DISCORD_WEBHOOK_HERE";
 
 function loadHireForm(){
+  // Clear main content and add hire form
   mainContent.innerHTML = `
     <section>
       <h2>Hire Me</h2>
@@ -193,8 +189,9 @@ function loadHireForm(){
   });
 }
 
-hireMeBtn.addEventListener('click', loadHireForm);
-hireFooterBtn.addEventListener('click', loadHireForm);
+// Add event listeners to both buttons
+document.getElementById('hireMeBtn').addEventListener('click', loadHireForm);
+document.getElementById('hireFooterBtn').addEventListener('click', loadHireForm);
 </script>
 
 </body>
