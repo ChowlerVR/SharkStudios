@@ -23,6 +23,7 @@
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -73,7 +74,7 @@
             margin-top: 20px;
             font-size: 1.2rem;
             max-width: 600px;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         .btn {
@@ -93,10 +94,11 @@
         }
 
         section {
-            padding: 100px 60px;
+            padding: 110px 60px;
             text-align: center;
         }
 
+        /* SERVICES */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -121,24 +123,41 @@
             color: #00c3ff;
         }
 
-        .portfolio img {
+        /* PORTFOLIO */
+        .portfolio-grid {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-grid img {
             width: 100%;
-            border-radius: 15px;
-            margin-top: 20px;
-            transition: 0.3s;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: 0.35s;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
 
-        .portfolio img:hover {
-            transform: scale(1.05);
+        .portfolio-grid img:hover {
+            transform: scale(1.06);
         }
 
-        .contact input, .contact textarea {
+        /* CONTACT */
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input,
+        .contact textarea {
             width: 100%;
             padding: 15px;
             margin-top: 15px;
             border-radius: 10px;
             border: none;
             outline: none;
+            font-size: 1rem;
         }
 
         .contact button {
@@ -156,18 +175,20 @@
             padding: 30px;
             background: #000814;
             font-size: 0.9rem;
-            opacity: 0.6;
+            opacity: 0.65;
         }
 
-        @media(max-width: 768px) {
-            .hero h2 {
-                font-size: 2.5rem;
-            }
+        @media (max-width: 768px) {
             header {
                 padding: 20px;
             }
+
+            .hero h2 {
+                font-size: 2.6rem;
+            }
+
             section {
-                padding: 80px 20px;
+                padding: 90px 20px;
             }
         }
     </style>
@@ -186,7 +207,7 @@
 
 <section class="hero" id="home">
     <h2>Dominate The Algorithm</h2>
-    <p>Professional Video Editing & High-Click Thumbnails that make your content stand out and get more views.</p>
+    <p>Professional video editing and high-click thumbnails built to grow creators and brands.</p>
     <a href="#contact" class="btn">Work With Us</a>
 </section>
 
@@ -195,29 +216,35 @@
     <div class="services">
         <div class="card">
             <h3>Video Editing</h3>
-            <p>High-energy edits, smooth transitions, subtitles, sound effects, and storytelling that keeps viewers watching.</p>
+            <p>Fast-paced, engaging edits with effects, subtitles, and storytelling that keeps viewers watching.</p>
         </div>
         <div class="card">
             <h3>Thumbnail Design</h3>
-            <p>Eye-catching thumbnails designed to increase CTR and make your videos impossible to ignore.</p>
+            <p>High-CTR thumbnails designed to stop the scroll and boost clicks instantly.</p>
         </div>
         <div class="card">
             <h3>Short Form Content</h3>
-            <p>Optimized TikTok, Shorts, and Reels edits designed to boost engagement and grow your audience.</p>
+            <p>TikTok, Shorts, and Reels optimized for retention and engagement.</p>
         </div>
     </div>
 </section>
 
-<section id="portfolio" class="portfolio">
+<section id="portfolio">
     <h2>Our Work</h2>
-    <p>Showcase your best edits and thumbnails here.</p>
-    <!-- Replace this with your own image file placed in the same folder -->
-    <img src="portfolio-example.jpg" alt="Project Example">
+    <p>Some of our recent thumbnails and designs.</p>
+
+    <div class="portfolio-grid">
+        <img src="New_Project_-_2026-01-31T135652.801.webp" alt="Thumbnail Example 1">
+        <img src="New_Project_-_2026-02-09T190911.630.webp" alt="Thumbnail Example 2">
+        <img src="New_Project_-_2026-02-12T160904.468.webp" alt="Thumbnail Example 3">
+        <img src="New_Project_1.webp" alt="Thumbnail Example 4">
+    </div>
 </section>
 
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p>Ready to grow your channel? Send us a message.</p>
+    <p>Ready to grow your content? Let’s talk.</p>
+
     <form id="contactForm">
         <input type="text" id="name" placeholder="Your Name" required>
         <input type="email" id="email" placeholder="Your Email" required>
@@ -235,20 +262,16 @@
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        const subject = encodeURIComponent("New Shark Studios Client Inquiry from " + name);
+        const subject = encodeURIComponent("New Shark Studios Inquiry - " + name);
         const body = encodeURIComponent(
-            "Name: " + name + "
-" +
-            "Email: " + email + "
-
-" +
-            "Project Details:
-" + message
+            "Name: " + name + "\n" +
+            "Email: " + email + "\n\n" +
+            "Project Details:\n" + message
         );
 
         window.location.href = `mailto:chowlergaming@gmail.com?subject=${subject}&body=${body}`;
 
-        document.getElementById("formStatus").innerText = "Opening your email app... If it doesn't open, please email chowlergaming@gmail.com directly.";
+        document.getElementById("formStatus").innerText = "Opening your email app…";
     });
 </script>
 
