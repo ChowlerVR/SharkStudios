@@ -114,7 +114,7 @@
     <button class="tab-btn" data-tab="discord">Discord</button>
   </div>
 
-  <!-- Email Form -->
+  <!-- Email Form (sends email address to Discord webhook) -->
   <form id="emailForm" class="contactForm">
     <input type="text" id="emailName" placeholder="Your Name" required>
     <input type="email" id="emailAddress" placeholder="Your Email" required>
@@ -152,20 +152,35 @@
     });
   });
 
-  // Email form submission
-  emailForm.addEventListener('submit', function(e) {
+  // Email form submission (send email info to Discord)
+  emailForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const name = document.getElementById('emailName').value;
-    const email = document.getElementById('emailAddress').value;
-    const message = document.getElementById('emailMessage').value;
+    const name = document.getElementById('emailName').value.trim();
+    const email = document.getElementById('emailAddress').value.trim();
+    const message = document.getElementById('emailMessage').value.trim();
 
-    const subject = encodeURIComponent('New Shark Studios Inquiry - ' + name);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n\n' +
-      'Project Details:\n' + message
-    );
-    window.location.href = `mailto:chowlergaming@gmail.com?subject=${subject}&body=${body}`;
+    if (!name || !email || !message) { alert('Please fill out all fields.'); return; }
+
+    const payload = {
+      content: `**New Inquiry from Shark Studios Website (Email Tab)**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}`
+    };
+
+    try {
+      const response = await fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (response.ok) {
+        alert('Message sent successfully via Discord!');
+        emailForm.reset();
+      } else {
+        alert('Failed to send message. Discord responded with status: ' + response.status);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error sending message. Check console for details.');
+    }
   });
 
   // Discord form submission
@@ -175,13 +190,10 @@
     const discordUser = document.getElementById('discordUser').value.trim();
     const message = document.getElementById('discordMessage').value.trim();
 
-    if (!name || !discordUser || !message) {
-      alert('Please fill out all fields.');
-      return;
-    }
+    if (!name || !discordUser || !message) { alert('Please fill out all fields.'); return; }
 
     const payload = {
-      content: `**New Inquiry from Shark Studios Website**\n**Name:** ${name}\n**Discord:** ${discordUser}\n**Message:** ${message}`
+      content: `**New Inquiry from Shark Studios Website (Discord Tab)**\n**Name:** ${name}\n**Discord:** ${discordUser}\n**Message:** ${message}`
     };
 
     try {
@@ -190,7 +202,6 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-
       if (response.ok) {
         alert('Message sent successfully via Discord!');
         discordForm.reset();
@@ -199,7 +210,7 @@
       }
     } catch (err) {
       console.error(err);
-      alert('Error sending message. Check the console for details.');
+      alert('Error sending message. Check console for details.');
     }
   });
 </script>
