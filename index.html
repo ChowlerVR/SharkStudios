@@ -34,7 +34,19 @@ section{padding:110px 60px;text-align:center;}
 footer{background:#000814;text-align:center;padding:30px;font-size:0.9rem;opacity:0.65;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;}
 .hire-btn{padding:8px 20px;border-radius:20px;background:#00c3ff;color:#000;text-decoration:none;font-weight:600;transition:0.3s;cursor:pointer;}
 .hire-btn:hover{background:#0077ff;color:#fff;}
-@media (max-width:768px){ header{padding:20px;} .hero h2{font-size:2.6rem;} section{padding:90px 20px;} footer{flex-direction:column;gap:10px;} }
+
+/* ===== Hire Form Styling ===== */
+.hire-form { display:flex; flex-direction:column; gap:20px; max-width:900px; margin:50px auto; text-align:left; background:#111827; padding:40px; border-radius:20px; box-shadow:0 25px 50px rgba(0,0,0,0.4); }
+.hire-form h2{font-size:2.8rem;text-align:center;margin-bottom:15px;}
+.hire-form p{font-size:1.1rem;text-align:center;opacity:0.8;margin-bottom:30px;}
+.hire-form input, .hire-form textarea{width:100%; padding:15px; border-radius:12px; border:none; outline:none; font-size:1rem; background:#1f2937; color:#fff; resize:none; }
+.hire-form textarea::placeholder, .hire-form input::placeholder{color:#bbb;}
+.hire-form button{padding:15px 40px; border-radius:30px; border:none; background:#00c3ff; color:#000; font-weight:600; cursor:pointer; transition:0.3s;}
+.hire-form button:hover{background:#0077ff;color:#fff;}
+/* Responsive for side-by-side fields */
+.hire-row { display:flex; gap:20px; flex-wrap:wrap; }
+.hire-row input{flex:1;}
+@media(max-width:768px){ .hire-form{padding:25px;} .hire-form h2{font-size:2rem;} .hire-row{flex-direction:column;} }
 </style>
 </head>
 <body>
@@ -153,24 +165,23 @@ document.getElementById('discordForm').addEventListener('submit',async e=>{
 const hireWebhookURL = "YOUR_HIRE_DISCORD_WEBHOOK_HERE";
 
 function loadHireForm(){
-  // Clear main content and add hire form
   mainContent.innerHTML = `
-    <section>
+    <section class="hire-form">
       <h2>Hire Me</h2>
       <p>Fill out this form and tell us why we should hire you. Your answers will go directly to our team via Discord.</p>
-      <form id="hireForm" class="hire-form">
+      <div class="hire-row">
         <input type="text" id="hireName" placeholder="Your Name" required>
         <input type="email" id="hireEmail" placeholder="Your Email" required>
-        <textarea id="hireExperience" rows="4" placeholder="What relevant experience do you have?" required></textarea>
-        <textarea id="hireReason" rows="4" placeholder="Why should we hire you?" required></textarea>
-        <textarea id="hireAdditional" rows="3" placeholder="Any additional info you'd like to share?"></textarea>
-        <button type="submit">Submit Application</button>
-      </form>
+      </div>
+      <textarea id="hireExperience" rows="4" placeholder="What relevant experience do you have?" required></textarea>
+      <textarea id="hireReason" rows="4" placeholder="Why should we hire you?" required></textarea>
+      <textarea id="hireAdditional" rows="3" placeholder="Any additional info you'd like to share?"></textarea>
+      <button type="submit">Submit Application</button>
     </section>
   `;
 
-  const hireForm = document.getElementById('hireForm');
-  hireForm.addEventListener('submit', async e=>{
+  const hireForm = document.querySelector('.hire-form button');
+  hireForm.addEventListener('click', async e=>{
     e.preventDefault();
     const name = document.getElementById('hireName').value.trim();
     const email = document.getElementById('hireEmail').value.trim();
@@ -178,21 +189,17 @@ function loadHireForm(){
     const reason = document.getElementById('hireReason').value.trim();
     const additional = document.getElementById('hireAdditional').value.trim();
     if(!name||!email||!experience||!reason){ alert("Please fill out all required fields."); return; }
-    const payload = {
-      content: `**New Hire Application**\n**Name:** ${name}\n**Email:** ${email}\n**Experience:** ${experience}\n**Reason:** ${reason}\n**Additional:** ${additional||"N/A"}`
-    };
+    const payload = {content:`**New Hire Application**\n**Name:** ${name}\n**Email:** ${email}\n**Experience:** ${experience}\n**Reason:** ${reason}\n**Additional:** ${additional||"N/A"}`};
     try{
       const res = await fetch(hireWebhookURL,{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
-      if(res.ok){ alert("Application submitted successfully!"); hireForm.reset(); }
+      if(res.ok){ alert("Application submitted successfully!"); document.getElementById('hireName').value=''; document.getElementById('hireEmail').value=''; document.getElementById('hireExperience').value=''; document.getElementById('hireReason').value=''; document.getElementById('hireAdditional').value=''; }
       else{ alert("Failed to submit. Discord status: "+res.status); }
     }catch(err){ console.error(err); alert("Error submitting application."); }
   });
 }
 
-// Add event listeners to both buttons
 document.getElementById('hireMeBtn').addEventListener('click', loadHireForm);
 document.getElementById('hireFooterBtn').addEventListener('click', loadHireForm);
 </script>
-
 </body>
 </html>
