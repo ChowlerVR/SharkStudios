@@ -1,36 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shark Studios | Hire Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { background:#0b0f19; color:#fff; overflow-x:hidden; }
+
+    header { position:fixed; top:0; left:0; width:100%; padding:20px 60px; display:flex; justify-content:space-between; align-items:center; background: rgba(0,0,0,0.65); backdrop-filter: blur(10px); z-index:1000; }
+    header h1 { font-size:1.6rem; font-weight:800; letter-spacing:2px; color:#00c3ff; }
+    nav a { color:#fff; text-decoration:none; margin-left:30px; font-weight:500; transition:0.3s; }
+    nav a:hover { color:#00c3ff; }
+
+    section { padding:120px 60px; text-align:center; max-width:700px; margin:0 auto; }
+
+    h2 { font-size:3rem; margin-bottom:15px; background: linear-gradient(90deg, #00c3ff, #0077ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    p { margin-bottom:30px; opacity:0.85; }
+
+    .hire-form input, .hire-form textarea { width:100%; margin-top:15px; padding:15px; border-radius:12px; border:none; outline:none; font-size:1rem; }
+    .hire-form button { margin-top:25px; padding:15px 34px; border-radius:30px; border:none; background:#00c3ff; font-weight:600; cursor:pointer; transition:0.3s; }
+    .hire-form button:hover { background:#0077ff; color:#fff; }
+
+    footer { background:#000814; text-align:center; padding:30px; font-size:0.9rem; opacity:0.65; }
+    @media(max-width:768px){ section { padding:90px 20px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Shark Studios</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#portfolio">Portfolio</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Hire Me</h2>
+  <p>Fill out this form and tell us why we should hire you. Your answers will go directly to our team via Discord.</p>
+
+  <form id="hireForm" class="hire-form">
+    <input type="text" id="hireName" placeholder="Your Name" required>
+    <input type="email" id="hireEmail" placeholder="Your Email" required>
+    <textarea id="hireExperience" rows="4" placeholder="What relevant experience do you have?" required></textarea>
+    <textarea id="hireReason" rows="4" placeholder="Why should we hire you?" required></textarea>
+    <textarea id="hireAdditional" rows="3" placeholder="Any additional info you'd like to share?" ></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+<script>
+  const hireForm = document.getElementById('hireForm');
+  const hireWebhookURL = "YOUR_NEW_DISCORD_WEBHOOK_HERE"; // Replace with your hire-specific webhook
+
+  async function sendHireForm(name, email, experience, reason, additional){
+    const payload = {
+      content: `**New Hire Application**\n**Name:** ${name}\n**Email:** ${email}\n**Experience:** ${experience}\n**Reason to Hire:** ${reason}\n**Additional Info:** ${additional || "N/A"}`
+    };
+    try{
+      const res = await fetch(hireWebhookURL, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+      });
+      if(res.ok){ alert("Application submitted successfully!"); return true; }
+      else{ alert("Failed to submit application. Discord status: " + res.status); return false; }
+    }catch(err){ console.error(err); alert("Error submitting application."); return false; }
+  }
+
+  hireForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const name = document.getElementById('hireName').value.trim();
+    const email = document.getElementById('hireEmail').value.trim();
+    const experience = document.getElementById('hireExperience').value.trim();
+    const reason = document.getElementById('hireReason').value.trim();
+    const additional = document.getElementById('hireAdditional').value.trim();
+
+    if(!name || !email || !experience || !reason){ alert("Please fill out all required fields."); return; }
+    const success = await sendHireForm(name,email,experience,reason,additional);
+    if(success) hireForm.reset();
+  });
+</script>
+
 <footer>
-  <div class="footer-left">© 2026 Shark Studios. All Rights Reserved.</div>
-  <div class="footer-right">
-    <a href="hire.html" class="hire-btn">Hire Me</a>
-  </div>
+  © 2026 Shark Studios. All Rights Reserved.
 </footer>
 
-<style>
-footer {
-  background:#000814;
-  text-align:center;
-  padding:30px;
-  font-size:0.9rem;
-  opacity:0.65;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
-.footer-left { color:#fff; }
-.footer-right {}
-.hire-btn {
-  padding:8px 20px;
-  border-radius:20px;
-  background:#00c3ff;
-  color:#000;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
-}
-.hire-btn:hover { background:#0077ff; color:#fff; }
-@media (max-width:768px){
-  footer { flex-direction:column; }
-}
-</style>
+</body>
+</html>
