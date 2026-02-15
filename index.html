@@ -20,7 +20,6 @@
       overflow-x: hidden;
     }
 
-    /* ================= HEADER ================= */
     header {
       position: fixed;
       top: 0;
@@ -54,7 +53,6 @@
       color: #00c3ff;
     }
 
-    /* ================= HERO ================= */
     .hero {
       height: 100vh;
       display: flex;
@@ -102,7 +100,6 @@
       text-align: center;
     }
 
-    /* ================= SERVICES ================= */
     .services {
       margin-top: 50px;
       display: grid;
@@ -127,7 +124,6 @@
       color: #00c3ff;
     }
 
-    /* ================= PORTFOLIO ================= */
     .portfolio-grid {
       margin-top: 60px;
       display: grid;
@@ -147,7 +143,6 @@
       transform: scale(1.07);
     }
 
-    /* ================= CONTACT ================= */
     .contact form {
       max-width: 620px;
       margin: 0 auto;
@@ -259,21 +254,36 @@
 </section>
 
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
+  const webhookURL = "https://discord.com/api/webhooks/1472399008126210201/OJ-DtO-mwa6-R-B-jh2FRgXers5B3m29Fu_EGJL6HlS3juZQoUBmiROHp8KuSZVzumhP";
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-    const subject = encodeURIComponent('New Shark Studios Inquiry - ' + name);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n\n' +
-      'Project Details:\n' + message
-    );
+    const payload = {
+      content: `**New Inquiry from Shark Studios Website**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}`
+    };
 
-    window.location.href = `mailto:chowlergaming@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        document.getElementById('contactForm').reset();
+      } else {
+        alert('Failed to send message. Try again later.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error sending message. Check the console.');
+    }
   });
 </script>
 
