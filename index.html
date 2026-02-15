@@ -38,12 +38,15 @@
     .tab-btn { padding:12px 30px; border-radius:30px; border: none; cursor:pointer; font-weight:600; background:#111827; color:#fff; transition:0.3s; }
     .tab-btn.active { background:#00c3ff; color:#000; }
 
-    footer { background:#000814; text-align:center; padding:30px; font-size:0.9rem; opacity:0.65; }
+    footer { background:#000814; text-align:center; padding:30px; font-size:0.9rem; opacity:0.65; display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; }
+    .hire-btn { padding:8px 20px; border-radius:20px; background:#00c3ff; color:#000; text-decoration:none; font-weight:600; transition:0.3s; }
+    .hire-btn:hover { background:#0077ff; color:#fff; }
 
     @media (max-width:768px) {
       header { padding:20px; }
       .hero h2 { font-size:2.6rem; }
       section { padding:90px 20px; }
+      footer { flex-direction:column; gap:10px; }
     }
   </style>
 </head>
@@ -135,7 +138,6 @@
   const discordForm = document.getElementById('discordForm');
   const webhookURL = "https://discord.com/api/webhooks/1472399008126210201/OJ-DtO-mwa6-R-B-jh2FRgXers5B3m29Fu_EGJL6HlS3juZQoUBmiROHp8KuSZVzumhP";
 
-  // Tab switching
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -183,6 +185,7 @@
 
 <footer>
   © 2026 Shark Studios. All Rights Reserved.
+  <a href="hire.html" class="hire-btn">Hire Me</a>
 </footer>
 
 </body>
