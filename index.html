@@ -1,282 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shark Studios | Video Editing & Thumbnails</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shark Studios | Video Editing & Thumbnails</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        body {
-            background: #0b0f19;
-            color: white;
-            overflow-x: hidden;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 60px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
+    body {
+      background: #0b0f19;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
 
-        header h1 {
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #00c3ff;
-        }
+    /* ================= HEADER ================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #00c3ff;
+    }
 
-        nav a:hover {
-            color: #00c3ff;
-        }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #001f3f, #000814);
-            padding: 0 20px;
-        }
+    nav a:hover {
+      color: #00c3ff;
+    }
 
-        .hero h2 {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, #00c3ff, #0077ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    /* ================= HERO ================= */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      background: linear-gradient(135deg, #001f3f, #000814);
+    }
 
-        .hero p {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            max-width: 600px;
-            opacity: 0.85;
-        }
+    .hero h2 {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00c3ff, #0077ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .btn {
-            margin-top: 30px;
-            padding: 15px 35px;
-            border-radius: 30px;
-            background: #00c3ff;
-            color: black;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+    .hero p {
+      margin-top: 20px;
+      max-width: 620px;
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
 
-        .btn:hover {
-            background: #0077ff;
-            color: white;
-        }
+    .btn {
+      margin-top: 35px;
+      padding: 15px 38px;
+      border-radius: 30px;
+      background: #00c3ff;
+      color: #000000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-        section {
-            padding: 110px 60px;
-            text-align: center;
-        }
+    .btn:hover {
+      background: #0077ff;
+      color: #ffffff;
+    }
 
-        /* SERVICES */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
+    section {
+      padding: 110px 60px;
+      text-align: center;
+    }
 
-        .card {
-            background: #111827;
-            padding: 40px;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
+    /* ================= SERVICES ================= */
+    .services {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            background: #1f2937;
-        }
+    .card {
+      background: #111827;
+      padding: 45px 35px;
+      border-radius: 22px;
+      transition: 0.35s;
+    }
 
-        .card h3 {
-            margin-bottom: 15px;
-            color: #00c3ff;
-        }
+    .card:hover {
+      transform: translateY(-12px);
+      background: #1f2937;
+    }
 
-        /* PORTFOLIO */
-        .portfolio-grid {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+    .card h3 {
+      margin-bottom: 15px;
+      color: #00c3ff;
+    }
 
-        .portfolio-grid img {
-            width: 100%;
-            border-radius: 18px;
-            cursor: pointer;
-            transition: 0.35s;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-        }
+    /* ================= PORTFOLIO ================= */
+    .portfolio-grid {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
 
-        .portfolio-grid img:hover {
-            transform: scale(1.06);
-        }
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.35s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+    }
 
-        /* CONTACT */
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .portfolio-grid img:hover {
+      transform: scale(1.07);
+    }
 
-        .contact input,
-        .contact textarea {
-            width: 100%;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 10px;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
+    /* ================= CONTACT ================= */
+    .contact form {
+      max-width: 620px;
+      margin: 0 auto;
+    }
 
-        .contact button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            border-radius: 30px;
-            border: none;
-            background: #00c3ff;
-            font-weight: 600;
-            cursor: pointer;
-        }
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #000814;
-            font-size: 0.9rem;
-            opacity: 0.65;
-        }
+    .contact button {
+      margin-top: 25px;
+      padding: 15px 34px;
+      border-radius: 30px;
+      border: none;
+      background: #00c3ff;
+      font-weight: 600;
+      cursor: pointer;
+    }
 
-        @media (max-width: 768px) {
-            header {
-                padding: 20px;
-            }
+    footer {
+      background: #000814;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      opacity: 0.65;
+    }
 
-            .hero h2 {
-                font-size: 2.6rem;
-            }
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
 
-            section {
-                padding: 90px 20px;
-            }
-        }
-    </style>
+      .hero h2 {
+        font-size: 2.6rem;
+      }
+
+      section {
+        padding: 90px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Shark Studios</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <h1>Shark Studios</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <section class="hero" id="home">
-    <h2>Dominate The Algorithm</h2>
-    <p>Professional video editing and high-click thumbnails built to grow creators and brands.</p>
-    <a href="#contact" class="btn">Work With Us</a>
+  <h2>Dominate The Algorithm</h2>
+  <p>Professional video editing and high-click thumbnails designed to grow creators and brands.</p>
+  <a href="#contact" class="btn">Work With Us</a>
 </section>
 
 <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Video Editing</h3>
-            <p>Fast-paced, engaging edits with effects, subtitles, and storytelling that keeps viewers watching.</p>
-        </div>
-        <div class="card">
-            <h3>Thumbnail Design</h3>
-            <p>High-CTR thumbnails designed to stop the scroll and boost clicks instantly.</p>
-        </div>
-        <div class="card">
-            <h3>Short Form Content</h3>
-            <p>TikTok, Shorts, and Reels optimized for retention and engagement.</p>
-        </div>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Video Editing</h3>
+      <p>High-energy edits, effects, subtitles, and pacing that keep viewers watching.</p>
     </div>
+    <div class="card">
+      <h3>Thumbnail Design</h3>
+      <p>Scroll-stopping thumbnails built for maximum click-through rate.</p>
+    </div>
+    <div class="card">
+      <h3>Short Form Content</h3>
+      <p>TikTok, Shorts, and Reels optimized for retention and growth.</p>
+    </div>
+  </div>
 </section>
 
 <section id="portfolio">
-    <h2>Our Work</h2>
-    <p>Some of our recent thumbnails and designs.</p>
+  <h2>Our Work</h2>
+  <p>Some of our recent thumbnails and designs.</p>
 
-    <div class="portfolio-grid">
-        <img src="New_Project_-_2026-01-31T135652.801.webp" alt="Thumbnail Example 1">
-        <img src="New_Project_-_2026-02-09T190911.630.webp" alt="Thumbnail Example 2">
-        <img src="New_Project_-_2026-02-12T160904.468.webp" alt="Thumbnail Example 3">
-        <img src="New_Project_1.webp" alt="Thumbnail Example 4">
-    </div>
+  <div class="portfolio-grid">
+    <img src="New_Project_-_2026-01-31T135652.801.webp" alt="Thumbnail 1">
+    <img src="New_Project_-_2026-02-09T190911.630.webp" alt="Thumbnail 2">
+    <img src="New_Project_-_2026-02-12T160904.468.webp" alt="Thumbnail 3">
+    <img src="New_Project_1.webp" alt="Thumbnail 4">
+  </div>
 </section>
 
 <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to grow your content? Let’s talk.</p>
+  <h2>Contact Us</h2>
+  <p>Ready to grow your content? Let’s work.</p>
 
-    <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea rows="5" id="message" placeholder="Tell us about your project..." required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <p id="formStatus" style="margin-top:15px;"></p>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-        const subject = encodeURIComponent("New Shark Studios Inquiry - " + name);
-        const body = encodeURIComponent(
-            "Name: " + name + "\n" +
-            "Email: " + email + "\n\n" +
-            "Project Details:\n" + message
-        );
+    const subject = encodeURIComponent('New Shark Studios Inquiry - ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n\n' +
+      'Project Details:\n' + message
+    );
 
-        window.location.href = `mailto:chowlergaming@gmail.com?subject=${subject}&body=${body}`;
-
-        document.getElementById("formStatus").innerText = "Opening your email app…";
-    });
+    window.location.href = `mailto:chowlergaming@gmail.com?subject=${subject}&body=${body}`;
+  });
 </script>
 
 <footer>
-    © 2026 Shark Studios. All Rights Reserved.
+  © 2026 Shark Studios. All Rights Reserved.
 </footer>
 
 </body>
