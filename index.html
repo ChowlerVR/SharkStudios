@@ -8,143 +8,134 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-body { background:#0b0f19; color:#fff; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0b0f19;color:#fff}
 
 /* HEADER */
-header {
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:20px 60px;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(0,0,0,.7);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+header{
+ position:fixed;
+ top:0;
+ width:100%;
+ padding:20px 60px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:rgba(0,0,0,.7);
+ backdrop-filter:blur(10px);
+ z-index:1000
 }
-header h1 { color:#00c3ff; font-weight:800; }
-nav a {
-  color:white;
-  margin-left:30px;
-  text-decoration:none;
+header h1{color:#00c3ff;font-weight:800}
+nav a{
+ color:#fff;
+ margin-left:30px;
+ text-decoration:none;
+ font-weight:500
 }
-nav a:hover { color:#00c3ff; }
+nav a:hover{color:#00c3ff}
 
 /* HERO */
-.hero {
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:linear-gradient(135deg,#001f3f,#000814);
+.hero{
+ height:100vh;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ background:linear-gradient(135deg,#001f3f,#000814)
 }
-.hero h2 {
-  font-size:4rem;
-  background:linear-gradient(90deg,#00c3ff,#0077ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.hero h2{
+ font-size:4rem;
+ background:linear-gradient(90deg,#00c3ff,#0077ff);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent
 }
-.hero p { max-width:650px; margin-top:20px; opacity:.85; }
-.btn {
-  margin-top:35px;
-  padding:15px 40px;
-  background:#00c3ff;
-  color:black;
-  border-radius:30px;
-  font-weight:600;
-  text-decoration:none;
+.hero p{margin-top:20px;max-width:650px;opacity:.85}
+.btn{
+ margin-top:35px;
+ padding:15px 40px;
+ background:#00c3ff;
+ color:#000;
+ border-radius:30px;
+ font-weight:600;
+ text-decoration:none
 }
-.btn:hover { background:#0077ff; color:white; }
+.btn:hover{background:#0077ff;color:#fff}
 
 /* SECTIONS */
-section {
-  padding:120px 60px;
-  text-align:center;
-}
+section{padding:120px 60px;text-align:center}
 
 /* SERVICES */
-.services {
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+.services{
+ margin-top:60px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:40px
 }
-.card {
-  background:#111827;
-  padding:40px;
-  border-radius:22px;
+.card{
+ background:#111827;
+ padding:40px;
+ border-radius:22px
 }
-.card h3 { color:#00c3ff; margin-bottom:15px; }
+.card h3{color:#00c3ff;margin-bottom:15px}
 
 /* PORTFOLIO */
-.portfolio-grid {
-  margin-top:60px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+.portfolio-grid{
+ margin-top:60px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:30px
 }
 .portfolio-grid img,
-.portfolio-grid iframe {
-  width:100%;
-  border-radius:18px;
+.portfolio-grid iframe{
+ width:100%;
+ border-radius:18px
 }
 
 /* FORMS */
-.form-box {
-  max-width:800px;
-  margin:60px auto 0;
-  background:#0f172a;
-  padding:50px;
-  border-radius:24px;
+.form-box{
+ max-width:800px;
+ margin:60px auto 0;
+ background:#0f172a;
+ padding:50px;
+ border-radius:24px
 }
 .form-box input,
-.form-box textarea {
-  width:100%;
-  margin-top:15px;
-  padding:15px;
-  border-radius:12px;
-  border:none;
+.form-box textarea{
+ width:100%;
+ margin-top:15px;
+ padding:15px;
+ border-radius:12px;
+ border:none
 }
-.form-box button {
-  margin-top:25px;
-  padding:15px 36px;
-  border-radius:30px;
-  background:#00c3ff;
-  font-weight:600;
-  border:none;
-  cursor:pointer;
+.form-box button{
+ margin-top:25px;
+ padding:15px 36px;
+ border-radius:30px;
+ background:#00c3ff;
+ border:none;
+ font-weight:600;
+ cursor:pointer
 }
 
-/* CREATOR SECTION */
-.creator {
-  background:linear-gradient(135deg,#020617,#020024);
+/* CREATOR */
+.creator{
+ background:linear-gradient(135deg,#020617,#020024)
 }
-.creator h2 {
-  color:#00c3ff;
-  font-size:3rem;
-}
-.creator p {
-  max-width:700px;
-  margin:20px auto;
-  opacity:.85;
-}
+.creator h2{color:#00c3ff;font-size:3rem}
 
 /* FOOTER */
-footer {
-  background:#000814;
-  padding:30px;
-  text-align:center;
-  opacity:.6;
+footer{
+ background:#000814;
+ padding:30px;
+ text-align:center;
+ opacity:.6
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  header{padding:20px;}
-  .hero h2{font-size:2.6rem;}
-  section{padding:90px 20px;}
+ header{padding:20px}
+ .hero h2{font-size:2.6rem}
+ section{padding:90px 20px}
 }
 </style>
 </head>
@@ -152,65 +143,66 @@ footer {
 <body>
 
 <header>
-  <h1>Shark Studios</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-    <a href="#creator">Apply</a>
-  </nav>
+<h1>Shark Studios</h1>
+<nav>
+ <a href="#home">Home</a>
+ <a href="#services">Services</a>
+ <a href="#portfolio">Portfolio</a>
+ <a href="#contact">Contact</a>
+ <a href="#creator">Apply</a>
+</nav>
 </header>
 
 <section class="hero" id="home">
-  <h2>Dominate The Algorithm</h2>
-  <p>Professional video editing & thumbnails built for creators.</p>
-  <a href="#creator" class="btn">Apply as Creator</a>
+<h2>Dominate The Algorithm</h2>
+<p>Professional video editing & thumbnails built for creators.</p>
+<a href="#creator" class="btn">Apply as Creator</a>
 </section>
 
 <section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Video Editing</h3><p>High-retention edits.</p></div>
-    <div class="card"><h3>Thumbnails</h3><p>High CTR designs.</p></div>
-    <div class="card"><h3>Short Form</h3><p>Optimized Shorts & Reels.</p></div>
-  </div>
+<h2>Our Services</h2>
+<div class="services">
+ <div class="card"><h3>Video Editing</h3><p>High-retention edits.</p></div>
+ <div class="card"><h3>Thumbnails</h3><p>High CTR designs.</p></div>
+ <div class="card"><h3>Short Form</h3><p>Optimized Shorts & Reels.</p></div>
+</div>
 </section>
 
 <section id="portfolio">
-  <h2>Our Work</h2>
-  <div class="portfolio-grid">
-    <img src="New_Project_1.webp">
-    <iframe src="https://www.youtube.com/embed/0x5vnSPy0dw"></iframe>
-  </div>
+<h2>Our Work</h2>
+<div class="portfolio-grid">
+ <img src="New_Project_1.webp">
+ <iframe src="https://www.youtube.com/embed/0x5vnSPy0dw" allowfullscreen></iframe>
+</div>
 </section>
 
+<!-- CONTACT FORM -->
 <section id="contact">
-  <h2>Contact Us</h2>
-  <div class="form-box">
-    <input id="cName" placeholder="Your Name">
-    <input id="cContact" placeholder="Email or Discord">
-    <textarea id="cMessage" placeholder="Your message..."></textarea>
-    <button onclick="sendContact()">Send</button>
-  </div>
+<h2>Contact Us</h2>
+<div class="form-box">
+ <input id="cName" placeholder="Your Name">
+ <input id="cContact" placeholder="Email or Discord">
+ <textarea id="cMessage" placeholder="Your message..."></textarea>
+ <button onclick="sendContact()">Send Message</button>
+</div>
 </section>
 
-<!-- 🔥 CONTENT CREATOR SIGN-UP SECTION -->
+<!-- CREATOR APPLICATION -->
 <section id="creator" class="creator">
-  <h2>Content Creator Application</h2>
-  <p>Apply to become a valued Shark Studios creator.</p>
+<h2>Content Creator Application</h2>
+<p>Apply to become a valued Shark Studios creator.</p>
 
-  <div class="form-box">
-    <input id="aName" placeholder="Your Name">
-    <input id="aDiscord" placeholder="Discord Username">
-    <input id="aYoutube" placeholder="YouTube Channel Link">
+<div class="form-box">
+ <input id="aName" placeholder="Your Name">
+ <input id="aDiscord" placeholder="Discord Username">
+ <input id="aYoutube" placeholder="YouTube Channel Link">
 
-    <textarea id="aWhy" placeholder="Why should we work with you?"></textarea>
-    <textarea id="aContent" placeholder="What content do you create?"></textarea>
-    <textarea id="aGoals" placeholder="Your goals as a creator"></textarea>
+ <textarea id="aWhy" placeholder="Why should we work with you?"></textarea>
+ <textarea id="aContent" placeholder="What content do you create?"></textarea>
+ <textarea id="aGoals" placeholder="Your goals as a creator"></textarea>
 
-    <button onclick="sendApplication()">Submit Application</button>
-  </div>
+ <button onclick="sendApplication()">Submit Application</button>
+</div>
 </section>
 
 <footer>
@@ -218,34 +210,45 @@ footer {
 </footer>
 
 <script>
-const webhook = "PUT_YOUR_WEBHOOK_HERE";
+const CONTACT_WEBHOOK = "https://discord.com/api/webhooks/1450650260383731795/faeVLm_C0TPGWacFgw3oBeJrDBzphHEvibylLo9WaBdyQzJ-yo41WrTqPXaOb-1o2Nba";
+const APPLICATION_WEBHOOK = "https://discord.com/api/webhooks/1472405862474711114/bTcukH1nxSaTFtTBaX6y4xq649Hrkv1HAOi1h0JZvxC1F02GNEtP5PWSm4EzYKZS137D";
 
-function post(msg){
+function post(webhook, message){
  fetch(webhook,{
   method:"POST",
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({content:msg})
+  headers:{ "Content-Type":"application/json" },
+  body:JSON.stringify({ content: message })
  });
 }
 
 function sendContact(){
- post(`📩 CONTACT\nName: ${cName.value}\nContact: ${cContact.value}\n${cMessage.value}`);
+ post(CONTACT_WEBHOOK,
+`📩 **NEW CONTACT MESSAGE**
+**Name:** ${cName.value}
+**Contact:** ${cContact.value}
+
+${cMessage.value}`
+ );
+ alert("Message sent!");
 }
 
 function sendApplication(){
- post(`🎥 CREATOR APPLICATION
-Name: ${aName.value}
-Discord: ${aDiscord.value}
-YouTube: ${aYoutube.value}
+ post(APPLICATION_WEBHOOK,
+`🎥 **CREATOR APPLICATION**
+**Name:** ${aName.value}
+**Discord:** ${aDiscord.value}
+**YouTube:** ${aYoutube.value}
 
-Why:
+**Why should we work with them?**
 ${aWhy.value}
 
-Content:
+**Content & Experience**
 ${aContent.value}
 
-Goals:
-${aGoals.value}`);
+**Creator Goals**
+${aGoals.value}`
+ );
+ alert("Application submitted!");
 }
 </script>
 
