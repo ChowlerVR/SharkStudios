@@ -19,18 +19,12 @@ header{
  padding:20px 60px;
  display:flex;
  justify-content:space-between;
- align-items:center;
  background:rgba(0,0,0,.7);
  backdrop-filter:blur(10px);
  z-index:1000
 }
 header h1{color:#00c3ff;font-weight:800}
-nav a{
- color:#fff;
- margin-left:30px;
- text-decoration:none;
- font-weight:500
-}
+nav a{color:#fff;margin-left:30px;text-decoration:none}
 nav a:hover{color:#00c3ff}
 
 /* HERO */
@@ -59,37 +53,9 @@ nav a:hover{color:#00c3ff}
  font-weight:600;
  text-decoration:none
 }
-.btn:hover{background:#0077ff;color:#fff}
 
 /* SECTIONS */
 section{padding:120px 60px;text-align:center}
-
-/* SERVICES */
-.services{
- margin-top:60px;
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:40px
-}
-.card{
- background:#111827;
- padding:40px;
- border-radius:22px
-}
-.card h3{color:#00c3ff;margin-bottom:15px}
-
-/* PORTFOLIO */
-.portfolio-grid{
- margin-top:60px;
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
- gap:30px
-}
-.portfolio-grid img,
-.portfolio-grid iframe{
- width:100%;
- border-radius:18px
-}
 
 /* FORMS */
 .form-box{
@@ -118,20 +84,12 @@ section{padding:120px 60px;text-align:center}
 }
 
 /* CREATOR */
-.creator{
- background:linear-gradient(135deg,#020617,#020024)
-}
+.creator{background:linear-gradient(135deg,#020617,#020024)}
 .creator h2{color:#00c3ff;font-size:3rem}
 
 /* FOOTER */
-footer{
- background:#000814;
- padding:30px;
- text-align:center;
- opacity:.6
-}
+footer{background:#000814;padding:30px;text-align:center;opacity:.6}
 
-/* MOBILE */
 @media(max-width:768px){
  header{padding:20px}
  .hero h2{font-size:2.6rem}
@@ -146,8 +104,6 @@ footer{
 <h1>Shark Studios</h1>
 <nav>
  <a href="#home">Home</a>
- <a href="#services">Services</a>
- <a href="#portfolio">Portfolio</a>
  <a href="#contact">Contact</a>
  <a href="#creator">Apply</a>
 </nav>
@@ -159,31 +115,16 @@ footer{
 <a href="#creator" class="btn">Apply as Creator</a>
 </section>
 
-<section id="services">
-<h2>Our Services</h2>
-<div class="services">
- <div class="card"><h3>Video Editing</h3><p>High-retention edits.</p></div>
- <div class="card"><h3>Thumbnails</h3><p>High CTR designs.</p></div>
- <div class="card"><h3>Short Form</h3><p>Optimized Shorts & Reels.</p></div>
-</div>
-</section>
-
-<section id="portfolio">
-<h2>Our Work</h2>
-<div class="portfolio-grid">
- <img src="New_Project_1.webp">
- <iframe src="https://www.youtube.com/embed/0x5vnSPy0dw" allowfullscreen></iframe>
-</div>
-</section>
-
 <!-- CONTACT FORM -->
 <section id="contact">
 <h2>Contact Us</h2>
 <div class="form-box">
- <input id="cName" placeholder="Your Name">
- <input id="cContact" placeholder="Email or Discord">
- <textarea id="cMessage" placeholder="Your message..."></textarea>
- <button onclick="sendContact()">Send Message</button>
+<form id="contactForm">
+ <input required id="cName" placeholder="Your Name">
+ <input required id="cContact" placeholder="Email or Discord">
+ <textarea required id="cMessage" placeholder="Your message..."></textarea>
+ <button type="submit">Send Message</button>
+</form>
 </div>
 </section>
 
@@ -193,15 +134,17 @@ footer{
 <p>Apply to become a valued Shark Studios creator.</p>
 
 <div class="form-box">
- <input id="aName" placeholder="Your Name">
- <input id="aDiscord" placeholder="Discord Username">
- <input id="aYoutube" placeholder="YouTube Channel Link">
+<form id="applyForm">
+ <input required id="aName" placeholder="Your Name">
+ <input required id="aDiscord" placeholder="Discord Username">
+ <input required id="aYoutube" placeholder="YouTube Channel Link">
 
- <textarea id="aWhy" placeholder="Why should we work with you?"></textarea>
- <textarea id="aContent" placeholder="What content do you create?"></textarea>
- <textarea id="aGoals" placeholder="Your goals as a creator"></textarea>
+ <textarea required id="aWhy" placeholder="Why should we work with you?"></textarea>
+ <textarea required id="aContent" placeholder="What content do you create?"></textarea>
+ <textarea required id="aGoals" placeholder="Your goals as a creator"></textarea>
 
- <button onclick="sendApplication()">Submit Application</button>
+ <button type="submit">Submit Application</button>
+</form>
 </div>
 </section>
 
@@ -213,43 +156,54 @@ footer{
 const CONTACT_WEBHOOK = "https://discord.com/api/webhooks/1450650260383731795/faeVLm_C0TPGWacFgw3oBeJrDBzphHEvibylLo9WaBdyQzJ-yo41WrTqPXaOb-1o2Nba";
 const APPLICATION_WEBHOOK = "https://discord.com/api/webhooks/1472405862474711114/bTcukH1nxSaTFtTBaX6y4xq649Hrkv1HAOi1h0JZvxC1F02GNEtP5PWSm4EzYKZS137D";
 
-function post(webhook, message){
- fetch(webhook,{
+async function send(webhook, content){
+ const res = await fetch(webhook,{
   method:"POST",
   headers:{ "Content-Type":"application/json" },
-  body:JSON.stringify({ content: message })
+  body:JSON.stringify({ content })
  });
+ if(!res.ok) throw new Error(res.status);
 }
 
-function sendContact(){
- post(CONTACT_WEBHOOK,
+document.getElementById("contactForm").addEventListener("submit", async e=>{
+ e.preventDefault();
+ try{
+  await send(CONTACT_WEBHOOK,
 `📩 **NEW CONTACT MESSAGE**
-**Name:** ${cName.value}
-**Contact:** ${cContact.value}
+Name: ${cName.value}
+Contact: ${cContact.value}
 
-${cMessage.value}`
- );
- alert("Message sent!");
-}
+${cMessage.value}`);
+  alert("Contact message sent!");
+  e.target.reset();
+ }catch(err){
+  alert("Failed to send contact message.");
+ }
+});
 
-function sendApplication(){
- post(APPLICATION_WEBHOOK,
+document.getElementById("applyForm").addEventListener("submit", async e=>{
+ e.preventDefault();
+ try{
+  await send(APPLICATION_WEBHOOK,
 `🎥 **CREATOR APPLICATION**
-**Name:** ${aName.value}
-**Discord:** ${aDiscord.value}
-**YouTube:** ${aYoutube.value}
+Name: ${aName.value}
+Discord: ${aDiscord.value}
+YouTube: ${aYoutube.value}
 
-**Why should we work with them?**
+Why:
 ${aWhy.value}
 
-**Content & Experience**
+Content:
 ${aContent.value}
 
-**Creator Goals**
-${aGoals.value}`
- );
- alert("Application submitted!");
-}
+Goals:
+${aGoals.value}`);
+  alert("Application submitted!");
+  e.target.reset();
+ }catch(err){
+  alert("Failed to submit application.");
+ }
+});
 </script>
 
 </body>
